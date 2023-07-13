@@ -115,8 +115,9 @@ ORDER BY v.visit_date DESC
 LIMIT 1;
 
 --2--
-SELECT COUNT(v.animal_id)
+SELECT COUNT(DISTINCT a.id)
 FROM visits v
+JOIN animals a ON a.id = v.animal_id
 JOIN vets vt ON vt.id = v.vet_id
 WHERE vt.name = 'Stephanie Mendez';
 
