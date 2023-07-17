@@ -49,3 +49,15 @@ CREATE TABLE visits (
   visit_date DATE,
   PRIMARY KEY (vet_id, animal_id, visit_date)
 );
+
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+CREATE INDEX visits_animal_id_idx ON visits (animal_id);
+
+CREATE INDEX visits_vet_id_idx ON visits (vet_id);
+
+CREATE INDEX owners_email_idx ON owners (email);
+
+CREATE MATERIALIZED VIEW visit_by_vet_id AS SELECT * FROM visits where vet_id = 2;
+
+
