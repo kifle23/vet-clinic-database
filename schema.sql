@@ -57,3 +57,7 @@ CREATE INDEX visits_animal_id_idx ON visits (animal_id);
 CREATE INDEX visits_vet_id_idx ON visits (vet_id);
 
 CREATE INDEX owners_email_idx ON owners (email);
+
+CREATE MATERIALIZED VIEW visit_by_vet_id AS SELECT * FROM visits where vet_id = 2;
+
+
